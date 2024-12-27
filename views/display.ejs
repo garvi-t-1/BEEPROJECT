@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #e6e6ff; /* Light purple */
+      }
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      h1 {
+        text-align: center;
+        color: #663399; /* Purple */
+      }
+      .user-card {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #ffe6f2; /* Light pink */
+      }
+      .user-card h2 {
+        margin: 0 0 10px;
+        font-size: 20px;
+        color: #3366cc; /* Blue */
+      }
+      .data-row {
+        margin-bottom: 8px;
+        font-size: 16px;
+      }
+      .data-row label {
+        font-weight: bold;
+        color: #663399; /* Purple */
+      }
+      .data-row span {
+        color: #3366cc; /* Blue */
+      }
+      .welcome-button {
+        display: block;
+        width: 150px;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #3366cc; /* Blue */
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .welcome-button:hover {
+        background-color: #663399; /* Purple */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>User List</h1>
+      <% data.forEach((user) => { %>
+      <div class="user-card">
+        <% for (const [key, value] of Object.entries(user)) { %>
+        <div class="data-row">
+          <label>
+            <%= key.charAt(0).toUpperCase() + key.slice(1).replace('-', ' ') %>:
+          </label>
+          <span><%= value %></span>
+        </div>
+        <% } %>
+      </div>
+      <% }) %>
+      <a href="/welcome" class="welcome-button">Go to Welcome Page</a>
+    </div>
+  </body>
+</html>
